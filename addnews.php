@@ -21,7 +21,7 @@ include('include/header.php');
     </ul>
 </div>
 
-
+ư
 <div style= "width:70% ; margin-left: 20%; margin-top: -15% " >
 
 <form action="addnews.php" method="post" enctype="multipart/form-data" name="categoryform" onsubmit="return validateform() ">
@@ -38,7 +38,7 @@ include('include/header.php');
 
   <div class="form-group">
     <label for="inputZip">Ngày</label>
-    <input type="date" name="date" class="form-control" id="date">
+    <input  type="date" name="date" class="form-control">
   </div>
 
   <div class="form-group">
