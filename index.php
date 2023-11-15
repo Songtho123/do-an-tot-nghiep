@@ -56,7 +56,7 @@ error_reporting(0);
   <header class="blog-header py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 pt-1">
-        <a class="link-secondary" href="#">Subscribe</a>
+        <a class="link-secondary" href="#">Đăng ký</a>
       </div>
       <div class="col-4 text-center">
         <a class="blog-header-logo text-dark" href="#">Thể Thao</a>
@@ -71,7 +71,7 @@ error_reporting(0);
       
   <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-between">
-      <a class="p-2 link-secondary" href="index.php">Home</a>
+      <a class="p-2 link-secondary" href="index.php">Trang chủ</a>
       <a class="p-2 link-secondary" href="#">Bóng đá</a>
       <a class="p-2 link-secondary" href="#">Cầu lông</a>
       <a class="p-2 link-secondary" href="#">Tennis</a>
@@ -79,7 +79,7 @@ error_reporting(0);
       <a class="p-2 link-secondary" href="#">Bóng chuyền</a>
       <a class="p-2 link-secondary" href="#">Thể thao điện tử</a>
       <a class="p-2 link-secondary" href="#">Bơi lội</a>
-      <a class="p-2 link-secondary" href="#">Contact us</a>
+      <a class="p-2 link-secondary" href="contact_us.php">Contact us</a>
     </nav>
   </div>
 </div>
@@ -111,7 +111,7 @@ error_reporting(0);
             <strong class="d-inline-block mb-2 text-primary"><?php echo $category ;?></strong>
             <h3 class="mb-0" ><a class="text-dark" href="single_page.php?single=<?php echo $row['id']; ?>"><?php echo $title ;?></a></h3>
             <div class="mb-1 text-muted"><?php echo $date ;?></div>
-            <a href="single_page.php?single=<?php echo $row['id']; ?>">Continue reading</a>
+            <a href="single_page.php?single=<?php echo $row['id']; ?>">Tiếp tục đọc</a>
           </div>
           <img class="card-img-right flex-auto d-none d-md-block" width="540" height="200" src="images/<?php echo $thumbnail; ?>" alt="card image cap"  >
       </div>
@@ -122,7 +122,7 @@ error_reporting(0);
   <div class="row g-5">
     <div class="col-md-8">
       <h3 class="pb-4 mb-4 fst-italic border-bottom">
-        Tin Moi
+        Tin mới
       </h3>
       
       <?php
