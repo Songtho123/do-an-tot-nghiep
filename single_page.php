@@ -235,7 +235,7 @@
                             <textarea name="content" id="editor">
                             <a>Bình luận</a>
                             </textarea>
-                            <p><button class="btn btn-success mt-2" type="submit">Submit</button></p>
+                            <p><button class="btn btn-success mt-2" type="submit" disabled>Submit</button></p>
                         </form>
                         <!-- <div class="mt-2"> <?php echo $msg ?> </div> -->
                         <script>
