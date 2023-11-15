@@ -194,8 +194,7 @@ error_reporting(0);
                 include ('db/connection.php');
                 $query1=mysqli_query($conn,"select * from category");
                 while($row=mysqli_fetch_array($query1)){
-                    
-                
+                  
             ?>
             <li><a href="category_page.php?single-<?php echo $row['category_name']; ?>"><?php echo $row['category_name']; ?></a></li>
             <?php }?>
