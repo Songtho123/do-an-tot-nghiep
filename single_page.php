@@ -7,15 +7,14 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>NEWS</title>
+    <title>Tin tức</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-
+    <script src="https://cdn.ckeditor.com/ckeditor5/22.0.0/classic/ckeditor.js"></script>
 
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-   
     <!-- Favicons -->
 <link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -93,16 +92,37 @@
 
   <div class="row mb-2">
   <?php
-          include('db/connection.php');
-          $query1 =mysqli_query($conn,"select * from news order by id desc limit 1,2");
-          while ($row=mysqli_fetch_array($query1)){
-            $category=$row['category'];
-            $date=$row['date'];
-            $title=$row['title'];
-            $thumbnail=$row['thumbnail'];
+    include('db/connection.php');
+    $query1 =mysqli_query($conn,"select * from news order by id desc limit 1,2");
+    while ($row=mysqli_fetch_array($query1)){
+      $category=$row['category'];
+      $date=$row['date'];
+      $title=$row['title'];
+      $thumbnail=$row['thumbnail'];
 
-          
-        ?>
+    $msg = "";
+    if (isset($_POST['content'])) {
+        $editor_data = $_POST['content'];
+
+        // Create connection
+        $conn = new mysqli("localhost", "root", "root", "test");
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = "INSERT INTO ckeditor (content) VALUES ('$editor_data')";
+
+        if ($conn->query($sql) === TRUE) {
+            $msg = "New record created successfully";
+        } else {
+            $msg = "Error: " . $sql . "<br>" . $conn->error;
+        }
+
+        $conn->close();
+    }
+    
+  ?>
     <div class="col-md-6">
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
@@ -205,6 +225,31 @@
       </div>
     </div>
   </div>
+
+  <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="" method="post">
+                            <textarea name="content" id="editor">
+                            <a>Bình luận</a>
+                            </textarea>
+                            <p><button class="btn btn-success mt-2" type="submit">Submit</button></p>
+                        </form>
+                        <!-- <div class="mt-2"> <?php echo $msg ?> </div> -->
+                        <script>
+                            ClassicEditor
+                                    .create(document.querySelector('#editor'))
+                                    .catch(error => {
+                                        console.error(error);
+                                    });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </main>
 
