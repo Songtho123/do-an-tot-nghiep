@@ -146,14 +146,3 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-CREATE TABLE `ckeditor` 
-  ( 
-     `id` INT NOT NULL auto_increment, 
-     `content` TEXT NOT NULL, 
-     PRIMARY KEY (`id`) 
-  ) 
-engine = innodb;
---
---tạo bảng cho ckeditor
---
